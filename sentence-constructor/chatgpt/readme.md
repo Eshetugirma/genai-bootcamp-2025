@@ -2,10 +2,8 @@
 
 ### Which Model
 
-GPT 4o
-I don't have the paid version of ChatGPT. so i'm planning to o1
-
-GPT4o is fast enough and I have exceded the limitations of the some model
+-GPT 4o
+-GPT4o is fast enough and I have exceded the limitations of the some other models
 
 ## Prompting Guides
 https://platform.openai.com/docs/guides/prompt-engineering
