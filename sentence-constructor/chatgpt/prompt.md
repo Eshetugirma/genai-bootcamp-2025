@@ -1,3 +1,6 @@
+## ChatGPT Powered Assistant Guide
+
+
 ## Role
 Oromo Language Teacher
 
