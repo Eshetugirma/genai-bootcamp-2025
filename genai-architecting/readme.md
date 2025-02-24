@@ -1,10 +1,10 @@
-# OromoX: AI-Powered English & Oromo Learning for Ethiopia’s Education Sector
+# OromaX: AI-Powered English & Oromo Learning for Ethiopia’s Education Sector
 
 ## 1. Overview
 
 Ethiopia’s education system serves millions of students, yet traditional teaching methods often limit practical **English proficiency** and access to quality **Oromo language** education.
 
-**OromoX** is an **AI-driven language learning platform** designed to enhance **English & Afaan Oromo** education by leveraging **interactive AI tutors, speech recognition, and adaptive learning**, tailored to Ethiopia’s diverse classrooms.
+**OromaX** is an **AI-driven language learning platform** designed to enhance **English & Afaan Oromo** education by leveraging **interactive AI tutors, speech recognition, and adaptive learning**, tailored to Ethiopia’s diverse classrooms.
 
 ### Key Focus Areas
 
