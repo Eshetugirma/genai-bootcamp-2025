@@ -19,6 +19,7 @@ const AppHeader = () => {
             alignItems: 'center',
           }}
         >
+
           <HearingIcon sx={{ mr: 1 }} />
           한국어 듣기 연습
         </Typography>
@@ -29,11 +30,11 @@ const AppHeader = () => {
           to="/videos"
           startIcon={<VideoLibraryIcon />}
         >
-          비디오 목록
+          비디오 목록 
         </Button>
-      </Toolbar>
-    </AppBar>
+      </Toolbar> 
+    </AppBar> 
   );
 };
 
-export default AppHeader;
+export default AppHeader; 
