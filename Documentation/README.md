@@ -9,7 +9,7 @@ This directory contains structured notes for the **GenAI Bootcamp 2025**, so far
 📍 **Path:** `TOGAF/`  
 📖 **Overview:** Covers TOGAF principles, ADM phases, governance, and AI integration.  
 
-🔹 **Key Documents:**  
+🔹 **Key Documents:**   
 
 - [TOGAF Foundations](./week-00-TOGAF/01-togaf-foundations.md) – Introduction to TOGAF and Enterprise Architecture.  
 - [TOGAF ADM](./week-00-TOGAF/02-togaf-architecture.md) – Breakdown of the TOGAF ADM process.  
