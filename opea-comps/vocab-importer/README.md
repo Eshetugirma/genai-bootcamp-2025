@@ -3,7 +3,7 @@
 This project is part of the GenAI Bootcamp 2025, implementing a vocabulary generator and importer using Ollama for local model serving.
 
 ## Project Overview
-
+ 
 The Korean Vocabulary Importer is a web application that:
 
 - Generates Korean vocabulary words for specific themes using local LLMs

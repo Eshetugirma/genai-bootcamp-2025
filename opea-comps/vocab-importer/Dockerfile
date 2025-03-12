@@ -10,4 +10,4 @@ COPY static/ static/
 
 EXPOSE 8000
 
-CMD ["python", "app.py"]
+CMD ["python", "app.py"] 

@@ -226,39 +226,40 @@ IMPORTANT:
                 # If we get here, try direct curl-style approach
                 # This is a more direct approach used by your curl command
                 direct_prompt = {
-                    "model": model,
+                    "model": model, 
                     "prompt": prompt,
                     "stream": False,
                 }
 
                 print("Trying direct API approach...")
                 direct_response = requests.post(
-                    "http://ollama-server:11434/api/generate", 
+                    "http://ollama-server:11434/api/generate",  
                     json=direct_prompt,
                 )
 
-                if direct_response.status_code == 200:
+                if direct_response.status_code == 200: 
                     direct_text = direct_response.json().get("response", "")
                     direct_result = parse_llm_json(direct_text)
 
                     if direct_result:
                         print("Direct approach succeeded")
-                        direct_result["model_used"] = model
+                        direct_result["model_used"] = model 
                         vocab_groups.append(direct_result)
                         return jsonify(direct_result)
 
             except Exception as e:
                 # JSON extraction failed
-                print(f"Error processing response: {str(e)}")
+                print(f"Error processing response: {str(e)}") 
         else:
             print(f"Error from Ollama API: {response.status_code}")
             print(response.text)
  
         # If all else fails, fallback to default data
         result = dict(FALLBACK_DATA)
-        result["name"] = theme
-        result["description"] = f"Words related to {theme} (fallback data)"
+        result["name"] = theme 
+        result["description"] = f"Words related to {theme} (fallback data)" 
         result["model_used"] = "fallback"
+
 
         vocab_groups.append(result)
         return jsonify(result)

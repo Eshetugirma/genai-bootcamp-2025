@@ -2,17 +2,17 @@ _**User**_
 
 DO IT IN A NEW DIRECTORY!!!!! 🔥
 
-We are migrating a Flask backend to Go/Gin. Follow the structured plan outlined below and ensure all necessary files are copied over for full functionality.
+We are migrating a Flask backend to Go/Gin. Follow the structured plan outlined below and ensure all necessary files are copied over for full functionality. 
 
 1️⃣ **Work in the new directory** called `backend-go/` alongside `backend-flask/`.  
-2️⃣ **Copy over essential non-Python files** (e.g., `data.json`, database seed files, etc.) to ensure Go implementation works without missing dependencies.  
+2️⃣ **Copy over essential non-Python files** (e.g., `data.json`, database seed files, etc.) to ensure Go implementation works without missing dependencies.
 3️⃣ **Follow the structured Flask to Go/Gin migration plan** and implement the backend accordingly:
-   - **Set up the Go project structure** as defined in the plan.
+   - **Set up the Go project structure** as defined in the plan. 
    - **Implement database models** in `internal/models/word.go` using GORM.
    - **Develop API handlers** in `internal/api/handlers/words.go`, ensuring request validation, pagination, and proper response formatting.
    - **Create middleware for logging and error handling, no authentication.**
    - **Optimize performance** using connection pooling, goroutines, and caching.
-   - **Maintain API response formats** to match the Flask backend for seamless frontend integration.
+   - **Maintain API response formats** to match the Flask backend for seamless frontend integration. 
    - **Write database migration and seed scripts** to populate SQLite/PostgreSQL.
 
 ⚠️ **DO NOT modify or overwrite the existing Flask backend! This should be a fully independent Go implementation.**
@@ -21,7 +21,7 @@ We are migrating a Flask backend to Go/Gin. Follow the structured plan outlined 
 ✅ **Final Output:**
 - A fully functional Go/Gin backend stored in `backend-go/`
 - API structure matching Flask's responses
-- Proper database and request handling
+- Proper database and request handling 
 
 🚀 Let’s go! 
 
@@ -32,13 +32,13 @@ _**Assistant**_
 
 I'll help create the Go/Gin backend in a new `backend-go` directory. Let's start with the essential project structure and core files.
 
-1. First, let's create the directory structure:
+1. First, let's create the directory structure: 
 
 ````bash
 mkdir -p backend-go/cmd/server
 mkdir -p backend-go/internal/api/{handlers,middleware,router}
 mkdir -p backend-go/internal/{models,repository,service}
-mkdir -p backend-go/pkg/{config,database}
+mkdir -p backend-go/pkg/{config,database} 
 mkdir -p backend-go/scripts
 mkdir -p backend-go/seed
 ````
@@ -52,7 +52,7 @@ go 1.21
 
 require (
     github.com/gin-gonic/gin v1.9.1
-    gorm.io/gorm v1.25.7
+    gorm.io/gorm v1.25.7 
     gorm.io/driver/sqlite v1.5.4
 )
 ````
@@ -74,7 +74,7 @@ type Word struct {
     English        []string       `gorm:"type:json;not null" json:"english"`
     Type           string         `gorm:"not null" json:"type"`
     ExampleKorean  string         `json:"example_korean"`
-    ExampleEnglish string         `json:"example_english"`
+    ExampleEnglish string         `json:"example_english"` 
     CreatedAt      time.Time      `json:"-"`
     UpdatedAt      time.Time      `json:"-"`
     Groups         []Group        `gorm:"many2many:words_groups;" json:"-"`
@@ -94,7 +94,7 @@ type StudySession struct {
     ID              uint          `gorm:"primaryKey"`
     GroupID         uint          `gorm:"not null" json:"group_id"`
     CreatedAt       time.Time     `json:"created_at"`
-    StudyActivityID uint          `json:"study_activity_id"`
+    StudyActivityID uint          `json:"study_activity_id"` 
     Group           Group         `json:"-"`
     Activity        StudyActivity `json:"-"`
     Reviews         []WordReview  `json:"-"`
@@ -105,7 +105,7 @@ type StudyActivity struct {
     Name         string    `gorm:"not null" json:"name"`
     URL          string    `gorm:"not null" json:"url"`
     ThumbnailURL string    `json:"thumbnail_url"`
-    CreatedAt    time.Time `json:"created_at"`
+    CreatedAt    time.Time `json:"created_at"` 
     Sessions     []StudySession `json:"-"`
 }
 
@@ -116,7 +116,7 @@ type WordReview struct {
     Correct        bool         `gorm:"not null" json:"correct"`
     CreatedAt      time.Time    `json:"created_at"`
     Word           Word         `json:"-"`
-    StudySession   StudySession `json:"-"`
+    StudySession   StudySession `json:"-"` 
 }
 ````
 
@@ -136,7 +136,7 @@ import (
     "github.com/yourusername/lang-portal/internal/models"
 )
 
-func SetupDB() (*gorm.DB, error) {
+func SetupDB() (*gorm.DB, error) { 
     // Ensure instance directory exists
     if err := os.MkdirAll("instance", 0755); err != nil {
         return nil, fmt.Errorf("failed to create instance directory: %v", err)
