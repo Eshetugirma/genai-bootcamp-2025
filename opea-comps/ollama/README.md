@@ -157,7 +157,7 @@ curl --noproxy "*" http://localhost:8008/api/generate -d '{
   "prompt": "Why is the sky blue?",
   "stream": false
 }'
-```
+``` 
 
 #### **🔬 Example: Non-Streaming Response (`"stream": false`)**
 
@@ -173,7 +173,7 @@ This forces a **single JSON response** instead of multiple tokenized parts.
 
 #### **📝 When to Use Streaming vs. Non-Streaming?**
 
-| **Mode**                         | **Best For**                                                                        |
+| **Mode**                         | **Best  For**                                                                        |
 | -------------------------------- | ----------------------------------------------------------------------------------- |
 | ✅ `"stream": false` (Full JSON) | When you need the **entire response at once** (easier to process in scripts or UI). |
 | ✅ `"stream": true` (Default)    | When you want a **real-time, token-by-token response** (ideal for chat UIs).        |

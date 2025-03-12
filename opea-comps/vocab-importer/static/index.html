@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            max-width: 800px;
+            max-width: 800px; 
             margin: 0 auto;
             padding: 20px;
             background-color: #f7f7f7;
@@ -19,7 +19,7 @@
         .container {
             background-color: white;
             border-radius: 8px;
-            padding: 20px;
+            padding: 20px; 
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             margin-bottom: 20px;
         }
@@ -37,7 +37,7 @@
             box-sizing: border-box;
         }
         button {
-            background-color: #3498db;
+            background-color: #3498db; 
             color: white;
             border: none;
             cursor: pointer;
@@ -55,7 +55,7 @@
             padding: 15px;
             max-height: 400px;
             overflow-y: auto;
-        }
+        } 
         .status {
             padding: 10px;
             border-radius: 4px;
@@ -79,7 +79,7 @@
             width: 36px;
             height: 36px;
             border-radius: 50%;
-            border-left-color: #3498db;
+            border-left-color: #3498db; 
             animation: spin 1s linear infinite;
             margin: 20px auto;
         }
@@ -103,7 +103,7 @@
             
             <label for="themeInput">Theme:</label>
             <input type="text" id="themeInput" value="Food" placeholder="Enter a theme (e.g., Travel, Animals, etc.)">
-            
+             
             <label for="countInput">Number of Words:</label>
             <input type="number" id="countInput" value="5" min="1" max="20">
             
@@ -135,7 +135,7 @@
             
             // Check health
             fetch('/health')
-                .then(response => response.json())
+                .then(response => response.json()) 
                 .then(data => {
                     if (data.ollama === 'connected') {
                         statusEl.textContent = `Connected to Ollama (v${data.ollama_version})`;
@@ -152,7 +152,7 @@
                     statusEl.className = 'status disconnected';
                 });
             
-            // Load models
+            // Load models 
             function loadModels() {
                 fetch('/models')
                     .then(response => response.json())
@@ -190,7 +190,7 @@
                 return Math.round(bytes / Math.pow(1024, i), 2) + ' ' + sizes[i];
             }
             
-            // Generate vocabulary
+            // Generate vocabulary 
             generateBtnEl.addEventListener('click', function() {
                 const model = modelSelectEl.value;
                 const theme = themeInputEl.value.trim();

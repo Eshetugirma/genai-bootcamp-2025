@@ -14,13 +14,13 @@ vocab_groups = []
 
 # Fallback data
 FALLBACK_DATA = {
-    "name": "Food",
+    "name": "Food", 
     "description": "Words related to Food",
     "words": [
         {
             "hangul": "김치",
             "romanization": "gimchi",
-            "type": "noun",
+            "type": "noun", 
             "english": ["kimchi", "fermented cabbage"],
             "example_sentence": {
                 "korean": "한국 사람들은 매일 김치를 먹어요.",
@@ -35,25 +35,25 @@ FALLBACK_DATA = {
             "example_sentence": {
                 "korean": "저는 매일 아침에 밥을 먹어요.",
                 "english": "I eat rice every morning.",
-            },
+            }, 
         },
         {
             "hangul": "국수",
             "romanization": "guksu",
             "type": "noun",
             "english": ["noodles"],
-            "example_sentence": {
+            "example_sentence": { 
                 "korean": "더운 날에는 차가운 국수가 맛있어요.",
                 "english": "Cold noodles are delicious on hot days.",
             },
         },
-    ],
+    ], 
 }
 
 
 @app.route("/health")
 def health():
-    # Check Ollama connection
+    # Check Ollama connection 
     try:
         response = requests.get("http://ollama-server:11434/api/version")
         return jsonify(
@@ -62,7 +62,7 @@ def health():
                 "ollama": "connected",
                 "ollama_version": response.json().get("version"),
             }
-        )
+        ) 
     except Exception as e:
         return jsonify(
             {"status": "healthy", "ollama": "disconnected", "error": str(e)}
@@ -74,7 +74,7 @@ def home():
     return send_from_directory(app.static_folder, "index.html")
 
 
-@app.route("/models", methods=["GET"])
+@app.route("/models", methods=["GET"]) 
 def list_models():
     try:
         response = requests.get("http://ollama-server:11434/api/tags")
@@ -88,7 +88,7 @@ def list_models():
 
 
 def parse_llm_json(text):
-    """
+    """ 
     Advanced function to parse JSON from LLM responses.
     Handles common issues like multiline strings, unicode, etc.
     """
@@ -191,7 +191,7 @@ IMPORTANT:
         response = requests.post(
             "http://ollama-server:11434/api/generate",
             json={"model": model, "prompt": prompt, "stream": False},
-        )
+        ) 
 
         if response.status_code == 200:
             try:
@@ -214,7 +214,7 @@ IMPORTANT:
                         "name" in result
                         and "description" in result
                         and "words" in result
-                    ):
+                    ): 
                         print("Valid vocabulary structure found")
                         vocab_groups.append(result)
                         return jsonify(result)
@@ -233,7 +233,7 @@ IMPORTANT:
 
                 print("Trying direct API approach...")
                 direct_response = requests.post(
-                    "http://ollama-server:11434/api/generate",
+                    "http://ollama-server:11434/api/generate", 
                     json=direct_prompt,
                 )
 
@@ -253,7 +253,7 @@ IMPORTANT:
         else:
             print(f"Error from Ollama API: {response.status_code}")
             print(response.text)
-
+ 
         # If all else fails, fallback to default data
         result = dict(FALLBACK_DATA)
         result["name"] = theme
