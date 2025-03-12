@@ -1,7 +1,7 @@
 services:
   # Transcript Processor Service
   transcript-processor:
-    build:
+    build:  
       context: .
       dockerfile: services/transcript-processor/Dockerfile
     ports:
@@ -9,44 +9,44 @@ services:
     volumes:
       - shared_data:/shared/data
     environment:
-      - OUTPUT_DIR=/shared/data
+      - OUTPUT_DIR=/shared/data 
       - USE_GPU=${USE_GPU}
       - HUGGINGFACEHUB_API_TOKEN=${HUGGINGFACEHUB_API_TOKEN}
     depends_on:
       - question-module
-      - audio-module
+      - audio-module 
     deploy:
       resources:
-        reservations:
+        reservations:  
           devices:
             - driver: nvidia
               count: all
               capabilities: [gpu]
-
+ 
   # Question Module Service
   question-module:
     build:
       context: .
       dockerfile: services/question-module/Dockerfile
-    ports:
+    ports: 
       - '5001:5001'
     volumes:
       - shared_data:/shared/data
     environment:
       - DATA_DIR=/shared/data
       - CHROMA_DIR=/shared/data/chroma
-      - OLLAMA_HOST=http://ollama:11434
+      - OLLAMA_HOST=http://ollama:11434 
       - USE_GPU=${USE_GPU}
       - HUGGINGFACEHUB_API_TOKEN=${HUGGINGFACEHUB_API_TOKEN}
       - LLM_MODEL=${LLM_MODEL}
       - EMBEDDING_MODEL=${EMBEDDING_MODEL}
-    depends_on:
+    depends_on: 
       - ollama
     deploy:
       resources:
         reservations:
           devices:
-            - driver: nvidia
+            - driver: nvidia 
               count: all
               capabilities: [gpu]
 
