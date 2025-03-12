@@ -1,6 +1,6 @@
 # Lang Portal Backend (Python + Flask)
 
-This is the backend for Lang Portal, a Oromo vocabulary learning platform. It is built using **Flask** and **SQLite3**.
+This is the backend for Lang Portal, a Korean vocabulary learning platform. It is built using **Flask** and **SQLite3**.
 
 ## 📜 Full Backend Specifications
 
@@ -71,7 +71,7 @@ This should start the flask app on port `5000`
 ├── sql/                # Database migrations
 │   ├── setup/          # Table creation SQL scripts
 ├── seed/               # JSON seed data
-│   ├── data_oromo.json # Oromo vocabulary words
+│   ├── data_korean.json # Korean vocabulary words
 │   ├── study_activities.json # Study activities
 ├── requirements.txt    # Python dependencies
 ├── README.md           # This file
