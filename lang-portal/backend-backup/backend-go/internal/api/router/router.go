@@ -8,7 +8,7 @@ import (
 )
 
 func SetupRouter(db *gorm.DB) *gin.Engine {
-	r := gin.Default()
+	r := gin.Default() 
 
 	// Enable CORS
 	r.Use(middleware.CORS())
